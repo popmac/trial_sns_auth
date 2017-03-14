@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!session[:user_id]
   end
+
+  # コントローラーのフィルターとして使用
+  def authenticate
+    return if logged_in?
+    redirect_to root_path, alert: 'ログインしてください'
+  end
 end
