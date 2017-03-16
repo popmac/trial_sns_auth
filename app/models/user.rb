@@ -2,7 +2,11 @@ class User < ApplicationRecord
   def self.find_or_create_from_auth_hash(auth_hash)
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
-    nickname = auth_hash[:info][:nickname]
+    if provider == 'facebook'
+      nickname = auth_hash[:info][:name]
+    elsif provider == 'twitter'
+      nickname = auth_hash[:info][:nickname]
+    end
     image_url = auth_hash[:info][:image]
 
     User.find_or_create_by(provider: provider, uid: uid) do |user|
