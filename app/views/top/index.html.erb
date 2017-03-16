@@ -1,7 +1,10 @@
 <h1>Titter認証の実験アプリ</h1>
 
 <% if logged_in? %>
+  <p>あなたはログインしています</p>
   <%= link_to 'ログアウト', logout_path %>
 <% else %>
-  <%= link_to 'Twitterでログイン', 'auth/twitter' %>
+  <p>あなたはログインしていません</p>
+  <%= link_to 'Twitterでログイン', 'auth/twitter' %></br>
+  <%= link_to 'Facebookでログイン', 'auth/facebook' %>
 <% end %>
