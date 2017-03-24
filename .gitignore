@@ -14,3 +14,4 @@
 
 # Ignore /config/secrets.yml
 /config/secrets.yml
+/.env
